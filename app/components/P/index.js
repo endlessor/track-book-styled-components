@@ -1,15 +1,14 @@
 import styled from 'styled-components';
 
-const H1 = styled.h1`
+const P = styled.p`
   object-fit: contain;
-  // font-family: LibreFranklin;
-  font-size: 30px;
+  font-size: 18px;
   font-weight: normal;
   font-style: normal;
   font-stretch: normal;
-  line-height: 1.17;
+  line-height: normal;
   letter-spacing: normal;
-  color: #393a3d;
+  color: #8d9096;
 `;
 
-export default H1;
+export default P;

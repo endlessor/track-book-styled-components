@@ -7,34 +7,48 @@
  */
 
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Switch, Route } from 'react-router-dom';
-
-import HomePage from 'containers/HomePage/Loadable';
+import { Switch, Route } from 'react-router';
+import WelcomePage from 'containers/OnBoarding/WelcomePage';
+import PaymentConnectPage from 'containers/OnBoarding/PaymentsConnectPage';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
-import Header from 'components/Header';
-import Footer from 'components/Footer';
+
+// import Header from 'components/Header';
+// import Footer from 'components/Footer';
 
 // import GlobalStyle from '../styles/global-styles';
 
 const AppWrapper = styled.div`
-  max-width: calc(768px + 16px * 2);
-  margin: 0 auto;
+  margin: 0;
   display: flex;
-  min-height: 100%;
-  padding: 0 16px;
+  min-height: 100vh;
+  padding: 0;
   flex-direction: column;
 `;
 
-export default function App() {
+function App() {
   return (
     <AppWrapper>
-      <Header />
       <Switch>
-        <Route exact path="/" component={HomePage} />
+        <Route
+          exact
+          path="/onboarding/welcome"
+          render={props => <WelcomePage history={props.history} />}
+        />
+        <Route
+          exact
+          path="/onboarding/payment-connect"
+          render={props => <PaymentConnectPage history={props.history} />}
+        />
         <Route path="" component={NotFoundPage} />
       </Switch>
-      <Footer />
     </AppWrapper>
   );
 }
+
+App.propTypes = {
+  history: PropTypes.shape({}),
+};
+
+export default App;

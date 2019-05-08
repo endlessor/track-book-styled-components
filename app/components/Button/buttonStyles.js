@@ -1,25 +1,15 @@
 import { css } from 'styled-components';
 
 const buttonStyles = css`
-  display: inline-block;
-  box-sizing: border-box;
-  padding: 0.25em 2em;
-  text-decoration: none;
+  min-width: 156px;
+  height: 61px;
   border-radius: 4px;
-  -webkit-font-smoothing: antialiased;
-  -webkit-touch-callout: none;
-  user-select: none;
+  background-color: #2c9f1c;
+  outline: none;
+  border: none;
   cursor: pointer;
-  outline: 0;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: bold;
-  font-size: 16px;
-  border: 2px solid #41addd;
-  color: #41addd;
-
-  &:active {
-    background: #41addd;
-    color: #fff;
+  &:hover {
+    background-color: #227a16;
   }
 `;
 
