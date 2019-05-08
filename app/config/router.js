@@ -12,6 +12,8 @@ import styled from 'styled-components';
 import { Switch, Route } from 'react-router';
 import WelcomePage from 'containers/OnBoarding/WelcomePage';
 import PaymentConnectPage from 'containers/OnBoarding/PaymentsConnectPage';
+import SuccessPage from 'containers/OnBoarding/SuccessPage';
+import PreferencesPage from 'containers/OnBoarding/PreferencesPage';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 
 // import Header from 'components/Header';
@@ -40,6 +42,16 @@ function App() {
           exact
           path="/onboarding/payment-connect"
           render={props => <PaymentConnectPage history={props.history} />}
+        />
+        <Route
+          exact
+          path="/onboarding/success"
+          render={props => <SuccessPage history={props.history} />}
+        />
+        <Route
+          exact
+          path="/onboarding/preferences"
+          render={props => <PreferencesPage history={props.history} />}
         />
         <Route path="" component={NotFoundPage} />
       </Switch>

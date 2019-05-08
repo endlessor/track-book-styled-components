@@ -64,6 +64,9 @@
     "babel-core": "7.0.0-bridge.0"
   },
   "dependencies": {
+    "@atlaskit/button": "^13.0.0",
+    "@atlaskit/checkbox": "^7.0.0",
+    "@atlaskit/select": "^9.0.1",
     "@babel/polyfill": "7.4.3",
     "chalk": "2.4.2",
     "compression": "1.7.4",

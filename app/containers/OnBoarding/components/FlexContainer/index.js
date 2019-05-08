@@ -21,10 +21,17 @@ const FlexRowContainer = styled.div`
 
 const FlexEndContainer = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+  justify-content: flex-end;
+  align-items: center;
+  margin: ${props => props.margin};
+`;
+
+const FlexStartContainer = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   margin: ${props => props.margin};
 `;
 
 export default FlexContainer;
-export { FlexEndContainer, FlexRowContainer };
+export { FlexEndContainer, FlexRowContainer, FlexStartContainer };

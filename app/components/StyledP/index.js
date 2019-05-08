@@ -10,6 +10,7 @@ const StyledP = styled.p`
   letter-spacing: normal;
   color: #8d9096;
   margin: ${props => (props.margin ? props.margin : '0')};
+  width: ${props => props.width};
 `;
 
 export default StyledP;

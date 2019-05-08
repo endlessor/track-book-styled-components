@@ -7,7 +7,10 @@ import H3 from './H3';
 import P from './P';
 import StyledP from './StyledP';
 import Container from './Container';
-import StyledButton from './Button/StyledButton';
+import StyledPrimaryButton from './Button/StyledPrimaryButton';
+import StyledNormalButton from './Button/StyledNormalButton';
+import StyledSelect from './StyledSelect';
+import StyledCheckbox from './StyledCheckbox';
 
 export {
   StyledRow,
@@ -18,6 +21,9 @@ export {
   H3,
   P,
   StyledP,
-  StyledButton,
+  StyledPrimaryButton,
+  StyledNormalButton,
   Container,
+  StyledSelect,
+  StyledCheckbox,
 };

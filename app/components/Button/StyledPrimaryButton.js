@@ -1,11 +1,11 @@
 import styled from 'styled-components';
-
+import Button from '@atlaskit/button';
 import buttonStyles from './buttonStyles';
 import buttonTextStyles from './buttonTextStyles';
 
-const StyledButton = styled.button`
+const StyledPrimaryButton = styled(Button)`
   ${buttonStyles};
   ${buttonTextStyles};
 `;
 
-export default StyledButton;
+export default StyledPrimaryButton;
