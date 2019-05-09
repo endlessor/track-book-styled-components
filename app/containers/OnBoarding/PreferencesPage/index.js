@@ -6,7 +6,10 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { Progress } from 'react-sweet-progress';
+// import LineTo from 'react-lineto';
+
 import {
   StepHeader,
   StepContent,
@@ -15,6 +18,9 @@ import {
   FlexEndContainer,
   FlexRowContainer,
   PaddedContainer,
+  FlexStartContainer,
+  PositionedRelativeContainer,
+  // Circle,
 } from '../components';
 import {
   StyledRow,
@@ -29,7 +35,27 @@ import {
   StyledSelect,
 } from '../../../components';
 import 'react-sweet-progress/lib/style.css';
-
+import RingImage from '../../../assets/images/ring.png';
+import PaymentHowToImage from '../../../assets/images/payment_howto.png';
+const RingImg = styled.img`
+  height: 8px;
+  margin-top: 8px;
+`;
+const PaymentHowToimg = styled.img`
+  width: calc(100% - 54px);
+  border-radius: 18px;
+`;
+const PrefPositionedRelativeContainer = styled(PositionedRelativeContainer)`
+  overflow: inherit;
+`;
+// const FirstCircle = styled(Circle)`
+//   top: 40px;
+//   right: -27px;
+// `
+// const SecondCircle = styled(Circle)`
+//   top: 80px;
+//   right: -27px;
+// `
 export default function PreferencesPage(props) {
   return (
     <Container>
@@ -56,9 +82,21 @@ export default function PreferencesPage(props) {
                   />
                 </FlexRowContainer>
               </FlexRowContainer>
-              <StyledP fontSize="12px" margin="8px 0 0 0">
-                Acknow a/c: Nexus Infotech Ltd. Fusion a/c: Nexus
-              </StyledP>
+              <FlexStartContainer>
+                <StyledP fontSize="12px" color="#b0b3b8" margin="8px 0 0 0">
+                  Acknow a/c:
+                </StyledP>
+                <StyledP fontSize="12px" margin="8px 6px 0 3px">
+                  Nexus Infotech Ltd.
+                </StyledP>
+                <RingImg src={RingImage} alt="Ring" />
+                <StyledP fontSize="12px" color="#b0b3b8" margin="8px 0 0 6px">
+                  Fusion a/c:
+                </StyledP>
+                <StyledP fontSize="12px" margin="8px 0 0 3px">
+                  Nexus
+                </StyledP>
+              </FlexStartContainer>
             </StepHeader>
             <StepContent>
               <PaddedContainer margin="0 120px 0 0">
@@ -82,24 +120,29 @@ export default function PreferencesPage(props) {
                   />
                 </PaddedContainer>
                 <PaddedContainer padding="8px 0">
-                  <StyledP>Select your payment method</StyledP>
-                  <StyledSelect
-                    className="single-select"
-                    classNamePrefix="react-select"
-                    options={[
-                      { label: 'Adelaide', value: 'adelaide' },
-                      { label: 'Brisbane', value: 'brisbane' },
-                      { label: 'Canberra', value: 'canberra' },
-                      { label: 'Darwin', value: 'darwin' },
-                      { label: 'Hobart', value: 'hobart' },
-                      { label: 'Melbourne', value: 'melbourne' },
-                      { label: 'Perth', value: 'perth' },
-                      { label: 'Sydney', value: 'sydney' },
-                    ]}
-                    placeholder="Choose a City"
-                  />
+                  <PrefPositionedRelativeContainer>
+                    <StyledP>Select your payment method</StyledP>
+                    <StyledSelect
+                      className="single-select"
+                      classNamePrefix="react-select"
+                      options={[
+                        { label: 'Adelaide', value: 'adelaide' },
+                        { label: 'Brisbane', value: 'brisbane' },
+                        { label: 'Canberra', value: 'canberra' },
+                        { label: 'Darwin', value: 'darwin' },
+                        { label: 'Hobart', value: 'hobart' },
+                        { label: 'Melbourne', value: 'melbourne' },
+                        { label: 'Perth', value: 'perth' },
+                        { label: 'Sydney', value: 'sydney' },
+                      ]}
+                      placeholder="Choose a City"
+                    />
+                    {/* <FirstCircle className="A" size="11px" />
+                    <SecondCircle className="B" size="11px" />
+                    <LineTo from="A" to="B" borderColor="#8dd1fd" borderStyle="dashed" /> */}
+                  </PrefPositionedRelativeContainer>
                 </PaddedContainer>
-                <PaddedContainer margin="12px 0">
+                <PaddedContainer margin="8px 0">
                   <StyledCheckbox
                     defaultChecked
                     isFullWidth
@@ -127,7 +170,7 @@ export default function PreferencesPage(props) {
                     placeholder="Choose a City"
                   />
                 </PaddedContainer>
-                <PaddedContainer margin="12px 0">
+                <PaddedContainer margin="8px 0">
                   <StyledCheckbox
                     defaultChecked
                     isFullWidth
@@ -147,12 +190,6 @@ export default function PreferencesPage(props) {
                         options={[
                           { label: 'Adelaide', value: 'adelaide' },
                           { label: 'Brisbane', value: 'brisbane' },
-                          { label: 'Canberra', value: 'canberra' },
-                          { label: 'Darwin', value: 'darwin' },
-                          { label: 'Hobart', value: 'hobart' },
-                          { label: 'Melbourne', value: 'melbourne' },
-                          { label: 'Perth', value: 'perth' },
-                          { label: 'Sydney', value: 'sydney' },
                         ]}
                         placeholder="Choose a City"
                       />
@@ -167,12 +204,6 @@ export default function PreferencesPage(props) {
                         options={[
                           { label: 'Adelaide', value: 'adelaide' },
                           { label: 'Brisbane', value: 'brisbane' },
-                          { label: 'Canberra', value: 'canberra' },
-                          { label: 'Darwin', value: 'darwin' },
-                          { label: 'Hobart', value: 'hobart' },
-                          { label: 'Melbourne', value: 'melbourne' },
-                          { label: 'Perth', value: 'perth' },
-                          { label: 'Sydney', value: 'sydney' },
                         ]}
                         placeholder="Choose a City"
                       />
@@ -185,13 +216,13 @@ export default function PreferencesPage(props) {
               <FlexEndContainer margin="0 46px 0 0">
                 <StyledNormalButton
                   appearance="default"
-                  onClick={() => props.history.push('/onboarding/success')}
+                  onClick={() => props.history.push('/success')}
                 >
                   Back
                 </StyledNormalButton>
                 <StyledPrimaryButton
                   appearance="primary"
-                  onClick={() => props.history.push('/onboarding/preferences')}
+                  onClick={() => props.history.push('/preferences')}
                 >
                   Next
                 </StyledPrimaryButton>
@@ -202,7 +233,19 @@ export default function PreferencesPage(props) {
             </StepFooter>
           </FlexContainer>
         </StyledCol>
-        <StyledCol xs={12} md={4} />
+        <StyledCol xs={12} md={4}>
+          <PositionedRelativeContainer backgroundColor="#f4f5f8">
+            <StyledP fontSize="20px" margin="43px 64px" color="#393a3d">
+              Here it is how it looks like in Acknow
+            </StyledP>
+            <StyledP fontSize="14px" margin="65px 64px 13px" color="#393a3d">
+              Choose the method you have chosen in your Acknow account
+            </StyledP>
+            <FlexEndContainer>
+              <PaymentHowToimg src={PaymentHowToImage} alt="Payment How to" />
+            </FlexEndContainer>
+          </PositionedRelativeContainer>
+        </StyledCol>
       </StyledRow>
     </Container>
   );

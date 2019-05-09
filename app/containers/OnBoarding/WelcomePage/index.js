@@ -62,9 +62,7 @@ export default function WelcomePage(props) {
               <FlexEndContainer margin="0 46px 0 0">
                 <StyledPrimaryButton
                   appearance="primary"
-                  onClick={() =>
-                    props.history.push('/onboarding/payment-connect')
-                  }
+                  onClick={() => props.history.push('/paymentconnectors')}
                 >
                   Get Started
                 </StyledPrimaryButton>
@@ -76,7 +74,7 @@ export default function WelcomePage(props) {
           </FlexContainer>
         </StyledCol>
         <StyledCol xs={12} md={4}>
-          <FlexContainer padding="130px 25%" backgroundColor="#f4f5f8">
+          <FlexContainer padding="15% 66px" backgroundColor="#f4f5f8">
             <DashedDiv>
               <Stepper number={1} title="Connect TrackBook with AckNow" />
               <Oval />

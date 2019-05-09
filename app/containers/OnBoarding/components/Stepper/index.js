@@ -1,18 +1,23 @@
 import React from 'react';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import CircleStepItem from './CircleStepItem';
 
 import { StyledP } from '../../../../components';
-import { FlexRowContainer } from '../FlexContainer';
+import { FlexStartContainer } from '../FlexContainer';
+
+const StepperContainer = styled(FlexStartContainer)`
+  z-index: 99;
+`;
 
 function Stepper(props) {
   return (
-    <FlexRowContainer alignItem={props.alignItem}>
+    <StepperContainer alignItem={props.alignItem}>
       <CircleStepItem>{props.number}</CircleStepItem>
-      <StyledP style={{ width: '160px' }} fontSize="16px">
+      <StyledP style={{ width: '160px', marginLeft: '26px' }} fontSize="16px">
         {props.title}
       </StyledP>
-    </FlexRowContainer>
+    </StepperContainer>
   );
 }
 

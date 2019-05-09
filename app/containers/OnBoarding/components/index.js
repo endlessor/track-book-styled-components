@@ -10,6 +10,10 @@ import PaymentType from './PaymentType';
 import Stepper from './Stepper';
 import PaddedContainer from './PaddedContainer';
 import WarningIcon from './WarningIcon';
+import PaymentRectangle from './PaymentRectangle';
+import PositionedRelativeContainer from './PositionedRelativeContainer';
+import PositionedAbsoluteContainer from './PositionedAbsoluteContainer';
+import Circle from './Circle';
 
 export {
   StepContent,
@@ -23,4 +27,8 @@ export {
   Stepper,
   PaymentType,
   WarningIcon,
+  PaymentRectangle,
+  PositionedRelativeContainer,
+  PositionedAbsoluteContainer,
+  Circle,
 };

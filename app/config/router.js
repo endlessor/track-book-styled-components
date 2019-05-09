@@ -35,22 +35,22 @@ function App() {
       <Switch>
         <Route
           exact
-          path="/onboarding/welcome"
+          path="/welcome"
           render={props => <WelcomePage history={props.history} />}
         />
         <Route
           exact
-          path="/onboarding/payment-connect"
+          path="/paymentconnectors"
           render={props => <PaymentConnectPage history={props.history} />}
         />
         <Route
           exact
-          path="/onboarding/success"
+          path="/success"
           render={props => <SuccessPage history={props.history} />}
         />
         <Route
           exact
-          path="/onboarding/preferences"
+          path="/preferences"
           render={props => <PreferencesPage history={props.history} />}
         />
         <Route path="" component={NotFoundPage} />

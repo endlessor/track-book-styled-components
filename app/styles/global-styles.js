@@ -22,13 +22,14 @@ const GlobalStyle = createGlobalStyle`
     min-width: 100%;
   }
 
-  p,
   label {
     font-family: Georgia, Times, 'Times New Roman', serif;
     line-height: 1.5em;
   }
 
- 
+  h1, h2, h3, h4, h5, h6, p {
+    font-family: 'Libre Franklin'
+  }
 `;
 
 export default GlobalStyle;

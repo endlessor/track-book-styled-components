@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
 
 const buttonTextStyles = css`
-  // font-family: LibreFranklin;
+  font-family: 'Libre Franklin';
   font-size: 16px;
   font-weight: 600;
   font-style: normal;

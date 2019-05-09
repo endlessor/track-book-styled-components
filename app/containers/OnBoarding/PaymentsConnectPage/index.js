@@ -19,6 +19,9 @@ import {
   PaddedContainer,
   FlexStartContainer,
   WarningIcon,
+  PaymentRectangle,
+  PositionedAbsoluteContainer,
+  PositionedRelativeContainer,
 } from '../components';
 import {
   StyledRow,
@@ -31,6 +34,7 @@ import {
   StyledPrimaryButton,
 } from '../../../components';
 import 'react-sweet-progress/lib/style.css';
+import { EmbbedOval, ParentOval } from '../components/Stepper/Oval';
 
 const FusionLogo = styled.h1`
   // font-family: AvantGarde;
@@ -47,6 +51,50 @@ const FusionLogo = styled.h1`
   }
 `;
 
+const AcknowText = styled.h1`
+  font-size: 42px;
+  color: #df8e2d;
+`;
+const DashedDiv = styled.div`
+  & {
+    position: relative;
+    height: 100%;
+    width: 10px;
+    margin-left: 234px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    -ms-transform: rotate(45deg); /* IE 9 */
+    -webkit-transform: rotate(45deg); /* Safari */
+    transform: rotate(45deg);
+  }
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 100px;
+    bottom: 0px;
+    border-left: 2px dashed #babec5;
+  }
+`;
+
+const PaymentOval = styled(ParentOval)`
+  top: calc(50vh + 72px);
+  left: -9px;
+`;
+const AcknowContainer = styled(PositionedAbsoluteContainer)`
+  top: 88px;
+  right: -25px;
+  overflow: hidden;
+  padding: 10px;
+`;
+
+const FusionContainer = styled(PositionedAbsoluteContainer)`
+  bottom: -25px;
+  left: -24px;
+  overflow: hidden;
+  padding: 10px;
+`;
 export default function PaymentConnectPage(props) {
   return (
     <Container>
@@ -73,9 +121,14 @@ export default function PaymentConnectPage(props) {
                   />
                 </FlexRowContainer>
               </FlexRowContainer>
-              <StyledP fontSize="12px" margin="8px 0 0 0">
-                Acknow a/c: Nexus Infotech Ltd.
-              </StyledP>
+              <FlexStartContainer>
+                <StyledP fontSize="12px" color="#b0b3b8" margin="8px 0 0 0">
+                  Acknow a/c:
+                </StyledP>
+                <StyledP fontSize="12px" margin="8px 0 0 3px">
+                  Nexus Infotech Ltd.
+                </StyledP>
+              </FlexStartContainer>
             </StepHeader>
             <StepContent>
               <H1>Connect to your payment system</H1>
@@ -107,7 +160,7 @@ export default function PaymentConnectPage(props) {
 
               <FlexStartContainer>
                 <WarningIcon />
-                <StyledP width="300px" margin="0 0 0 16px">
+                <StyledP width="400px" color="#393a3d" margin="0 0 0 16px">
                   New tab will open for you to give Fusion permission. You can
                   disconnect any time.
                 </StyledP>
@@ -116,7 +169,7 @@ export default function PaymentConnectPage(props) {
             <StepFooter>
               <FlexEndContainer margin="0 46px 0 0">
                 <StyledPrimaryButton
-                  onClick={() => props.history.push('/onboarding/success')}
+                  onClick={() => props.history.push('/success')}
                   appearance="primary"
                 >
                   Next
@@ -128,7 +181,25 @@ export default function PaymentConnectPage(props) {
             </StepFooter>
           </FlexContainer>
         </StyledCol>
-        <StyledCol xs={12} md={4} />
+        <StyledCol xs={12} md={4}>
+          <PositionedRelativeContainer backgroundColor="#f4f5f8">
+            <DashedDiv>
+              <PaymentOval>
+                <EmbbedOval />
+              </PaymentOval>
+            </DashedDiv>
+            <AcknowContainer>
+              <PaymentRectangle width="330px" height="312px" ovalSize="8px">
+                <AcknowText>Acknow</AcknowText>
+              </PaymentRectangle>
+            </AcknowContainer>
+            <FusionContainer>
+              <PaymentRectangle width="330px" height="312px" ovalSize="8px">
+                <FusionLogo>Fusion</FusionLogo>
+              </PaymentRectangle>
+            </FusionContainer>
+          </PositionedRelativeContainer>
+        </StyledCol>
       </StyledRow>
     </Container>
   );

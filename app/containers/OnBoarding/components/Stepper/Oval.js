@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const EmbbedOval = styled.div`
+export const EmbbedOval = styled.div`
   width: 7px;
   height: 7px;
   margin: 7px;
@@ -9,7 +9,7 @@ const EmbbedOval = styled.div`
   border-radius: 50%;
 `;
 
-const ParentOval = styled.div`
+export const ParentOval = styled.div`
   position: absolute;
   top: 180px;
   left: 24px;

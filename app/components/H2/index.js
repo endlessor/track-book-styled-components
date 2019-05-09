@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const H2 = styled.h2`
   object-fit: contain;
-  // font-family: LibreFranklin;
+  font-family: 'Libre Franklin';
   font-size: 20px;
   font-weight: bold;
   font-style: normal;

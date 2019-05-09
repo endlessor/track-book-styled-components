@@ -14,9 +14,8 @@ const FlexRowContainer = styled.div`
   justify-content: space-between;
   align-items: ${props => (props.alignItem ? props.alignItem : 'center')};
   padding: ${props => props.padding};
-  background-color: ${props => props.backgroundColor}
+  background-color: ${props => props.backgroundColor};
   position: relative;
-  z-index: 99;
 `;
 
 const FlexEndContainer = styled.div`

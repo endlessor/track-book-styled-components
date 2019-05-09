@@ -9,7 +9,7 @@ const StyledNormalButton = styled(Button)`
     width: 100%;
   }
   object-fit: contain;
-  // font-family: LibreFranklin;
+  font-family: 'Libre Franklin';
   font-size: 16px;
   font-weight: 500;
   font-style: normal;
