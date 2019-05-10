@@ -6,15 +6,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import {
-  StepHeader,
-  StepContent,
-  StepFooter,
-  FlexContainer,
-  FlexEndContainer,
-  Stepper,
-} from '../components';
+import { StepHeader, StepContent, StepFooter, Stepper } from '../components';
 import {
   StyledRow,
   StyledCol,
@@ -24,26 +16,12 @@ import {
   StyledP,
   Container,
   StyledPrimaryButton,
+  FlexContainer,
+  FlexEndContainer,
 } from '../../../components';
 import Oval from '../components/Stepper/Oval';
 
-const DashedDiv = styled.div`
-  & {
-    position: relative;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  &:before {
-    content: '';
-    position: absolute;
-    left: 34px;
-    top: 0;
-    height: 100%;
-    border-left: 2px dashed #babec5;
-  }
-`;
+import { DashedDiv } from './styles';
 
 export default function WelcomePage(props) {
   return (

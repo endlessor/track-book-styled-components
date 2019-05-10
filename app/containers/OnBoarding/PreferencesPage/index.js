@@ -6,7 +6,6 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import { Progress } from 'react-sweet-progress';
 // import LineTo from 'react-lineto';
 
@@ -14,12 +13,6 @@ import {
   StepHeader,
   StepContent,
   StepFooter,
-  FlexContainer,
-  FlexEndContainer,
-  FlexRowContainer,
-  PaddedContainer,
-  FlexStartContainer,
-  PositionedRelativeContainer,
   // Circle,
 } from '../components';
 import {
@@ -33,21 +26,22 @@ import {
   StyledPrimaryButton,
   StyledNormalButton,
   StyledSelect,
+  FlexContainer,
+  FlexEndContainer,
+  FlexRowContainer,
+  PaddedContainer,
+  FlexStartContainer,
+  PositionedRelativeContainer,
 } from '../../../components';
 import 'react-sweet-progress/lib/style.css';
 import RingImage from '../../../assets/images/ring.png';
 import PaymentHowToImage from '../../../assets/images/payment_howto.png';
-const RingImg = styled.img`
-  height: 8px;
-  margin-top: 8px;
-`;
-const PaymentHowToimg = styled.img`
-  width: calc(100% - 54px);
-  border-radius: 18px;
-`;
-const PrefPositionedRelativeContainer = styled(PositionedRelativeContainer)`
-  overflow: inherit;
-`;
+
+import {
+  PrefPositionedRelativeContainer,
+  PaymentHowToimg,
+  RingImg,
+} from './styles';
 // const FirstCircle = styled(Circle)`
 //   top: 40px;
 //   right: -27px;
@@ -222,7 +216,7 @@ export default function PreferencesPage(props) {
                 </StyledNormalButton>
                 <StyledPrimaryButton
                   appearance="primary"
-                  onClick={() => props.history.push('/preferences')}
+                  onClick={() => props.history.push('/transactions')}
                 >
                   Next
                 </StyledPrimaryButton>

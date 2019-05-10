@@ -16,7 +16,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import FontFaceObserver from 'fontfaceobserver';
 import history from 'utils/history';
 import 'sanitize.css/sanitize.css';
-
+import 'antd/dist/antd.css';
 // Import root app
 import LanguageProvider from 'containers/LanguageProvider';
 import Layout from './config/layouts';

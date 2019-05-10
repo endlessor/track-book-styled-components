@@ -11,6 +11,15 @@ import StyledPrimaryButton from './Button/StyledPrimaryButton';
 import StyledNormalButton from './Button/StyledNormalButton';
 import StyledSelect from './StyledSelect';
 import StyledCheckbox from './StyledCheckbox';
+import FlexContainer, {
+  FlexEndContainer,
+  FlexRowContainer,
+  FlexStartContainer,
+} from './FlexContainer';
+
+import PaddedContainer from './PaddedContainer';
+import PositionedAbsoluteContainer from './PositionedAbsoluteContainer';
+import PositionedRelativeContainer from './PositionedRelativeContainer';
 
 export {
   StyledRow,
@@ -26,4 +35,11 @@ export {
   Container,
   StyledSelect,
   StyledCheckbox,
+  FlexContainer,
+  FlexEndContainer,
+  FlexRowContainer,
+  FlexStartContainer,
+  PaddedContainer,
+  PositionedAbsoluteContainer,
+  PositionedRelativeContainer,
 };

@@ -14,6 +14,7 @@ import WelcomePage from 'containers/OnBoarding/WelcomePage';
 import PaymentConnectPage from 'containers/OnBoarding/PaymentsConnectPage';
 import SuccessPage from 'containers/OnBoarding/SuccessPage';
 import PreferencesPage from 'containers/OnBoarding/PreferencesPage';
+import TransactionsPage from 'containers/Transactions/TransactionsPage';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 
 // import Header from 'components/Header';
@@ -52,6 +53,11 @@ function App() {
           exact
           path="/preferences"
           render={props => <PreferencesPage history={props.history} />}
+        />
+        <Route
+          exact
+          path="/transactions"
+          render={props => <TransactionsPage history={props.history} />}
         />
         <Route path="" component={NotFoundPage} />
       </Switch>

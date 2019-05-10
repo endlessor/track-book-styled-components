@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import CircleStepItem from './CircleStepItem';
 
 import { StyledP } from '../../../../components';
-import { FlexStartContainer } from '../FlexContainer';
+import { FlexStartContainer } from '../../../../components/FlexContainer';
 
 const StepperContainer = styled(FlexStartContainer)`
   z-index: 99;
