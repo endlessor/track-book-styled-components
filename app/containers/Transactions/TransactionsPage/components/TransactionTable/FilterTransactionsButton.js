@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const OutlineDiv = styled.div`
@@ -25,12 +26,16 @@ const OutlineDiv = styled.div`
   }
 `;
 
-function FilterTransactionsButton() {
+function FilterTransactionsButton(props) {
+  const { onClick } = props;
   return (
-    <OutlineDiv>
+    <OutlineDiv onClick={onClick}>
       <p>Filter Transactions</p>
     </OutlineDiv>
   );
 }
 
+FilterTransactionsButton.propTypes = {
+  onClick: PropTypes.func,
+};
 export default FilterTransactionsButton;

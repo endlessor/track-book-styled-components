@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Table } from 'antd';
 import { FaChevronRight, FaChevronLeft } from 'react-icons/fa';
 import { data } from './fakeData';
-
+import { TransactionModal, PreDownloadModal } from '../Modal';
 import FilterTransactionsButton from './FilterTransactionsButton';
 import {
   DownloadPreviousTransactionsButton,
@@ -67,7 +67,7 @@ const columns = [
   {
     title: 'ACTIONS',
     key: 'actions',
-    render: () => <p>delete</p>,
+    render: () => <StatusPara>delete</StatusPara>,
   },
 ];
 
@@ -101,6 +101,8 @@ const rowSelection = {
 class TransactionTable extends Component {
   state = {
     currentPage: `1-10 of ${data.length}`,
+    visiblePreModal: false,
+    visibleTraModal: false,
   };
 
   onChange = pagination => {
@@ -114,13 +116,43 @@ class TransactionTable extends Component {
     });
   };
 
+  onPreDownloadModal = () => {
+    this.setState({
+      visiblePreModal: true,
+    });
+  };
+
+  onTransactionModal = () => {
+    this.setState({
+      visibleTraModal: true,
+    });
+  };
+
+  closeModal = () => {
+    this.setState({
+      visibleTraModal: false,
+      visiblePreModal: false,
+    });
+  };
+
   render() {
     return (
       <TableContainer>
+        <PreDownloadModal
+          visible={this.state.visiblePreModal}
+          closeModal={this.closeModal}
+        />
+        <TransactionModal
+          visible={this.state.visibleTraModal}
+          closeModal={this.closeModal}
+        />
         <TablePagination>
           <ButtonPanel>
-            <FilterTransactionsButton />
-            <DownloadPreviousTransactionsButton appearance="primary">
+            <FilterTransactionsButton onClick={this.onTransactionModal} />
+            <DownloadPreviousTransactionsButton
+              onClick={this.onPreDownloadModal}
+              appearance="primary"
+            >
               Download Previous Transactions
             </DownloadPreviousTransactionsButton>
           </ButtonPanel>

@@ -66,6 +66,7 @@
   "dependencies": {
     "@atlaskit/button": "^13.0.0",
     "@atlaskit/checkbox": "^7.0.0",
+    "@atlaskit/datetime-picker": "^8.0.1",
     "@atlaskit/select": "^9.0.1",
     "@babel/polyfill": "7.4.3",
     "antd": "^3.17.0",
@@ -85,6 +86,7 @@
     "minimist": "1.2.0",
     "prop-types": "15.7.2",
     "react": "16.8.6",
+    "react-awesome-modal": "^2.0.5",
     "react-dom": "16.8.6",
     "react-flexbox-grid": "^2.1.2",
     "react-helmet": "6.0.0-beta",

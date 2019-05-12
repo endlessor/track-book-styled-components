@@ -16,7 +16,7 @@ import FlexContainer, {
   FlexRowContainer,
   FlexStartContainer,
 } from './FlexContainer';
-
+import StyledDatePicker from './StyledDatePicker';
 import PaddedContainer from './PaddedContainer';
 import PositionedAbsoluteContainer from './PositionedAbsoluteContainer';
 import PositionedRelativeContainer from './PositionedRelativeContainer';
@@ -34,6 +34,7 @@ export {
   StyledNormalButton,
   Container,
   StyledSelect,
+  StyledDatePicker,
   StyledCheckbox,
   FlexContainer,
   FlexEndContainer,
