@@ -229,10 +229,10 @@ export default function PreferencesPage(props) {
         </StyledCol>
         <StyledCol xs={12} md={4}>
           <PositionedRelativeContainer backgroundColor="#f4f5f8">
-            <StyledP fontSize="20px" margin="43px 64px" color="#393a3d">
+            <StyledP fontSize="20px" margin="43px 12.4%" color="#393a3d">
               Here it is how it looks like in Acknow
             </StyledP>
-            <StyledP fontSize="14px" margin="65px 64px 13px" color="#393a3d">
+            <StyledP fontSize="14px" margin="65px 12.4% 13px" color="#393a3d">
               Choose the method you have chosen in your Acknow account
             </StyledP>
             <FlexEndContainer>

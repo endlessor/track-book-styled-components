@@ -6,6 +6,7 @@ const FlexContainer = styled.div`
   justify-content: space-between;
   height: 100%;
   padding: ${props => props.padding};
+  margin: ${props => props.margin};
   background-color: ${props => props.backgroundColor};
 `;
 
@@ -13,6 +14,7 @@ const FlexRowContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: ${props => (props.alignItem ? props.alignItem : 'center')};
+  margin: ${props => props.margin};
   padding: ${props => props.padding};
   background-color: ${props => props.backgroundColor};
   position: relative;

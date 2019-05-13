@@ -20,6 +20,7 @@ import StyledDatePicker from './StyledDatePicker';
 import PaddedContainer from './PaddedContainer';
 import PositionedAbsoluteContainer from './PositionedAbsoluteContainer';
 import PositionedRelativeContainer from './PositionedRelativeContainer';
+import DropDown from './DropDown';
 
 export {
   StyledRow,
@@ -43,4 +44,5 @@ export {
   PaddedContainer,
   PositionedAbsoluteContainer,
   PositionedRelativeContainer,
+  DropDown,
 };

@@ -14,9 +14,10 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 import FontFaceObserver from 'fontfaceobserver';
-import history from 'utils/history';
+// import history from 'utils/history';
 import 'sanitize.css/sanitize.css';
 import 'antd/dist/antd.css';
+import './styles/index.css';
 // Import root app
 import LanguageProvider from 'containers/LanguageProvider';
 import Layout from './config/layouts';
@@ -48,7 +49,7 @@ const render = messages => {
     <Provider store={store}>
       <LanguageProvider messages={messages}>
         <Router>
-          <Layout history={history} />
+          <Layout />
         </Router>
       </LanguageProvider>
     </Provider>,

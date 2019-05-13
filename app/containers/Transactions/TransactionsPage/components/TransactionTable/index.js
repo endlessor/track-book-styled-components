@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Table } from 'antd';
 import { FaChevronRight, FaChevronLeft } from 'react-icons/fa';
 import { data } from './fakeData';
@@ -72,7 +73,7 @@ const columns = [
 ];
 
 // customize item Render of Pagination
-function itemRender(current, type, originalElement) {
+function itemRender(type, originalElement) {
   if (type === 'prev') {
     return <FaChevronLeft />;
   }
@@ -86,18 +87,13 @@ function itemRender(current, type, originalElement) {
 }
 // rowSelection object indicates the need for row selection
 const rowSelection = {
-  // onChange: (selectedRowKeys, selectedRows) => {
-  //   // console.log(
-  //   //   `selectedRowKeys: ${selectedRowKeys}`,
-  //   //   'selectedRows: ',
-  //   //   selectedRows,
-  //   // );
-  // },
+  // onChange: () => {},
   getCheckboxProps: record => ({
     disabled: record.name === 'Disabled User', // Column configuration not to be checked
     name: record.name,
   }),
 };
+
 class TransactionTable extends Component {
   state = {
     currentPage: `1-10 of ${data.length}`,
@@ -135,6 +131,12 @@ class TransactionTable extends Component {
     });
   };
 
+  // record, index
+  onSelect = () => {
+    const { openDrawer } = this.props;
+    openDrawer();
+  };
+
   render() {
     return (
       <TableContainer>
@@ -166,10 +168,18 @@ class TransactionTable extends Component {
           dataSource={data}
           pagination={{ position: 'top', itemRender }}
           onChange={this.onChange}
+          onRow={(record, index) => ({
+            onClick: () => {
+              this.onSelect(record, index);
+            },
+          })}
         />
       </TableContainer>
     );
   }
 }
 
+TransactionTable.propTypes = {
+  openDrawer: PropTypes.func,
+};
 export default TransactionTable;

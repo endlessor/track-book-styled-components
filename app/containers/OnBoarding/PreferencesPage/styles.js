@@ -7,7 +7,7 @@ const RingImg = styled.img`
   margin-top: 8px;
 `;
 const PaymentHowToimg = styled.img`
-  width: calc(100% - 54px);
+  width: 87.6%;
   border-radius: 18px;
 `;
 const PrefPositionedRelativeContainer = styled(PositionedRelativeContainer)`
