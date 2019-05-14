@@ -89,6 +89,7 @@
     "react": "16.8.6",
     "react-awesome-modal": "^2.0.5",
     "react-dom": "16.8.6",
+    "react-dropdown": "^1.6.4",
     "react-flexbox-grid": "^2.1.2",
     "react-helmet": "6.0.0-beta",
     "react-icons": "^3.7.0",
