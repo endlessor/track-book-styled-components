@@ -6,7 +6,7 @@ import BarChart from './Charts/BarChart';
 
 import { PageTitle, AnalyticsContainer } from './styles';
 import PieChart from './Charts/PieChart';
-
+import StackChart from './Charts/StackChart';
 const ddDatas = ['Last 5 months', 'This month', 'Last Week', 'This week'];
 const barChartSample = [
   { name: 'Jan', value: 1800 },
@@ -17,15 +17,25 @@ const barChartSample = [
 ];
 
 const pieChartSample = [
-  { name: 'Group A', value: 400 },
-  { name: 'Group B', value: 300 },
-  { name: 'Group C', value: 300 },
-  { name: 'Group D', value: 200 },
+  { name: 'Sales', value: 600 },
+  { name: 'Expense', value: 600 },
+  { name: 'Fees', value: 1000 },
+  { name: 'Deposit', value: 800 },
 ];
+
+const stackChartSample = [
+  { name: 'Jan', Expenses: 2000, Fees: 1400, amt: 2400 },
+  { name: 'Feb', Expenses: 2000, Fees: 398, amt: 2210 },
+  { name: 'Mar', Expenses: 2000, Fees: 800, amt: 2290 },
+  { name: 'Apr', Expenses: 2780, Fees: 80, amt: 2000 },
+  { name: 'May', Expenses: 1890, Fees: 800, amt: 2181 },
+];
+
+const colors = ['#278480', '#33a5a4', '#3cc1bf', '#44d7d7'];
 
 function AnalyticsPage() {
   return (
-    <AnalyticsContainer height="calc(100vh - 70px)">
+    <AnalyticsContainer>
       <FlexStartContainer>
         <PageTitle>Analytics</PageTitle>
       </FlexStartContainer>
@@ -53,7 +63,9 @@ function AnalyticsPage() {
             ddDatas={ddDatas}
             headerTitle="Total Expense & Fees"
             headerValue="$2368"
-          />
+          >
+            <StackChart data={stackChartSample} />
+          </ChartCard>
         </StyledCol>
       </StyledRow>
       <StyledRow>
@@ -81,7 +93,7 @@ function AnalyticsPage() {
             headerTitle="Sales/Expense/ Fees/Deposit"
             headerValue="$34723"
           >
-            <PieChart data={barChartSample} color="#64be19" />
+            <PieChart data={pieChartSample} colors={colors} />
           </ChartCard>
         </StyledCol>
         <StyledCol xs={12} md={6} lg={3}>
@@ -89,7 +101,9 @@ function AnalyticsPage() {
             ddDatas={ddDatas}
             headerTitle="Sales by Products"
             headerValue="$23634"
-          />
+          >
+            <PieChart data={pieChartSample} colors={colors} />
+          </ChartCard>
         </StyledCol>
       </StyledRow>
     </AnalyticsContainer>

@@ -4,7 +4,8 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  height: ${props => (props.height ? props.height : '100vh')};
+  height: ${props => props.height};
+  min-height: 100vh;
   margin: 0;
 `;
 

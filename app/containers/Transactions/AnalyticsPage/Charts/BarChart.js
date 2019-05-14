@@ -6,6 +6,7 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
+  ResponsiveContainer,
 } from 'recharts';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
@@ -49,13 +50,19 @@ const CustomTooltip = ({ active, payload, label }) => {
 function BarChart(props) {
   const { data, color } = props;
   return (
-    <BChart width={400} height={250} data={data}>
-      <CartesianGrid vertical={false} />
-      <XAxis dataKey="name" />
-      <YAxis domain={[0, 2400]} />
-      <Tooltip content={<CustomTooltip />} unit="5" />
-      <Bar dataKey="value" fill={color} />
-    </BChart>
+    <ResponsiveContainer>
+      <BChart data={data} barCategoryGap="20%">
+        <CartesianGrid vertical={false} strokeDasharray="3" stroke="#f4f5f8" />
+        <XAxis tickLine={false} axisLine={false} dataKey="name" />
+        <YAxis tickLine={false} axisLine={false} domain={[0, 2400]} />
+        <Tooltip
+          content={<CustomTooltip />}
+          unit="5"
+          cursor={{ fill: 'transparent' }}
+        />
+        <Bar barSize="60%" dataKey="value" fill={color} />
+      </BChart>
+    </ResponsiveContainer>
   );
 }
 
