@@ -80,7 +80,9 @@ function AnalyticsPage() {
             ddDatas={ddDatas}
             headerTitle="Sales/Expense/ Fees/Deposit"
             headerValue="$34723"
-          />
+          >
+            <PieChart data={barChartSample} color="#64be19" />
+          </ChartCard>
         </StyledCol>
         <StyledCol xs={12} md={6} lg={3}>
           <ChartCard

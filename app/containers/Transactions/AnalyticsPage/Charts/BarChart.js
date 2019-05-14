@@ -50,9 +50,7 @@ function BarChart(props) {
   const { data, color } = props;
   return (
     <BChart width={400} height={250} data={data}>
-      <CartesianGrid
-        vertical={false}
-      />
+      <CartesianGrid vertical={false} />
       <XAxis dataKey="name" />
       <YAxis domain={[0, 2400]} />
       <Tooltip content={<CustomTooltip />} unit="5" />
