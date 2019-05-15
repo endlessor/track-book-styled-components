@@ -62,7 +62,7 @@ class TransactionsPage extends Component {
           />
           <SyncTab
             id={4}
-            label="Igonored"
+            label="Ignored"
             color="#6d7af7"
             selectedTab={this.state.selectedTab}
             selectTab={this.selectTab}
@@ -76,7 +76,10 @@ class TransactionsPage extends Component {
           />
         </TabsContainer>
         <TransactionsContainer>
-          <TransactionTable openDrawer={this.openDetailDrawer} />
+          <TransactionTable
+            selectedTab={this.state.selectedTab}
+            openDrawer={this.openDetailDrawer}
+          />
         </TransactionsContainer>
       </Container>
     );

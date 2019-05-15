@@ -21,7 +21,7 @@ import PaddedContainer from './PaddedContainer';
 import PositionedAbsoluteContainer from './PositionedAbsoluteContainer';
 import PositionedRelativeContainer from './PositionedRelativeContainer';
 import DropDown from './DropDown';
-
+import Loader from './Loader';
 export {
   StyledRow,
   StyledCol,
@@ -45,4 +45,5 @@ export {
   PositionedAbsoluteContainer,
   PositionedRelativeContainer,
   DropDown,
+  Loader,
 };

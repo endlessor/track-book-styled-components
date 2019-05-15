@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import Button from '@atlaskit/button';
 
 const StyledNormalButton = styled(Button)`
-  min-width: ${props => (props.minWidth ? props.minWidth : '156px')};
+  min-width: ${props => (props.minWidth ? props.minWidth : '156px')} !important;
   height: ${props => (props.height ? props.height : '61px')} !important;
   border-radius: 4px;
   & > span {

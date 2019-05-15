@@ -60,7 +60,7 @@ function BarChart(props) {
           unit="5"
           cursor={{ fill: 'transparent' }}
         />
-        <Bar barSize="60%" dataKey="value" fill={color} />
+        <Bar dataKey="value" fill={color} />
       </BChart>
     </ResponsiveContainer>
   );

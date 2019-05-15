@@ -43,7 +43,7 @@ import {
 
 export default function SuccessPage(props) {
   return (
-    <Container>
+    <Container height="100vh">
       <StyledRow>
         <StyledCol xs={12} md={8}>
           <FlexContainer>
@@ -88,9 +88,6 @@ export default function SuccessPage(props) {
                   Next
                 </StyledPrimaryButton>
               </FlexEndContainer>
-              <StyledP fontSize="12px">
-                © 2019 Nexus Technologies. All Rights Reserved.
-              </StyledP>
             </StepFooter>
           </FlexContainer>
         </StyledCol>

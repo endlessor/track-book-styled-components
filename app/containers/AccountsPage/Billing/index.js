@@ -34,8 +34,8 @@ import 'react-sweet-progress/lib/style.css';
 
 class Billing extends React.Component {
   renderInvoiceListItems = () =>
-    [1, 2, 3, 4, 5].map(() => (
-      <InvoiceList>
+    [1, 2, 3, 4, 5].map(item => (
+      <InvoiceList key={`${item}`}>
         <StyledP16 color="#393a3d">#134589</StyledP16>
         <StyledP16 color="#393a3d">Jan 4, 2018</StyledP16>
         <StyledP16 color="#393a3d">$25</StyledP16>

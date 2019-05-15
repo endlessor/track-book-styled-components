@@ -1,10 +1,20 @@
 import React from 'react';
 import ChartCard from './ChartCard';
 
-import { StyledRow, StyledCol, FlexStartContainer } from '../../../components';
+import {
+  StyledRow,
+  StyledCol,
+  FlexStartContainer,
+  Loader,
+} from '../../../components';
 import BarChart from './Charts/BarChart';
 
-import { PageTitle, AnalyticsContainer } from './styles';
+import {
+  PageTitle,
+  AnalyticsContainer,
+  LoaderContainer,
+  PositionedRelativeDiv,
+} from './styles';
 import PieChart from './Charts/PieChart';
 import StackChart from './Charts/StackChart';
 const ddDatas = ['Last 5 months', 'This month', 'Last Week', 'This week'];
@@ -33,81 +43,95 @@ const stackChartSample = [
 
 const colors = ['#278480', '#33a5a4', '#3cc1bf', '#44d7d7'];
 
-function AnalyticsPage() {
-  return (
-    <AnalyticsContainer>
-      <FlexStartContainer>
-        <PageTitle>Analytics</PageTitle>
-      </FlexStartContainer>
-      <StyledRow>
-        <StyledCol xs={12} md={4}>
-          <ChartCard
-            ddDatas={ddDatas}
-            headerTitle="Total Sales"
-            headerValue="$53482"
-          >
-            <BarChart data={barChartSample} color="#64be19" />
-          </ChartCard>
-        </StyledCol>
-        <StyledCol xs={12} md={4}>
-          <ChartCard
-            ddDatas={ddDatas}
-            headerTitle="Total Sales Tax"
-            headerValue="$4643"
-          >
-            <BarChart data={barChartSample} color="#64be19" />
-          </ChartCard>
-        </StyledCol>
-        <StyledCol xs={12} md={4}>
-          <ChartCard
-            ddDatas={ddDatas}
-            headerTitle="Total Expense & Fees"
-            headerValue="$2368"
-          >
-            <StackChart data={stackChartSample} />
-          </ChartCard>
-        </StyledCol>
-      </StyledRow>
-      <StyledRow>
-        <StyledCol xs={12} md={6} lg={3}>
-          <ChartCard
-            ddDatas={ddDatas}
-            headerTitle="Total Refunds/ Disputes"
-            headerValue="$48348"
-          >
-            <BarChart data={barChartSample} color="#64be19" />
-          </ChartCard>
-        </StyledCol>
-        <StyledCol xs={12} md={6} lg={3}>
-          <ChartCard
-            ddDatas={ddDatas}
-            headerTitle="Total Refunds/ Disputes"
-            headerValue="$48348"
-          >
-            <BarChart data={barChartSample} color="#64be19" />
-          </ChartCard>
-        </StyledCol>
-        <StyledCol xs={12} md={6} lg={3}>
-          <ChartCard
-            ddDatas={ddDatas}
-            headerTitle="Sales/Expense/ Fees/Deposit"
-            headerValue="$34723"
-          >
-            <PieChart data={pieChartSample} colors={colors} />
-          </ChartCard>
-        </StyledCol>
-        <StyledCol xs={12} md={6} lg={3}>
-          <ChartCard
-            ddDatas={ddDatas}
-            headerTitle="Sales by Products"
-            headerValue="$23634"
-          >
-            <PieChart data={pieChartSample} colors={colors} />
-          </ChartCard>
-        </StyledCol>
-      </StyledRow>
-    </AnalyticsContainer>
-  );
+class AnalyticsPage extends React.Component {
+  state = {
+    isLoading: true,
+  };
+
+  render() {
+    return (
+      <AnalyticsContainer>
+        <FlexStartContainer>
+          <PageTitle>Analytics</PageTitle>
+        </FlexStartContainer>
+        <StyledRow>
+          <StyledCol xs={12} md={4}>
+            <ChartCard
+              ddDatas={ddDatas}
+              headerTitle="Total Sales"
+              headerValue="$53482"
+            >
+              <BarChart data={barChartSample} color="#64be19" />
+            </ChartCard>
+          </StyledCol>
+          <StyledCol xs={12} md={4}>
+            <ChartCard
+              ddDatas={ddDatas}
+              headerTitle="Total Sales Tax"
+              headerValue="$4643"
+            >
+              <BarChart data={barChartSample} color="#64be19" />
+            </ChartCard>
+          </StyledCol>
+          <StyledCol xs={12} md={4}>
+            <ChartCard
+              ddDatas={ddDatas}
+              headerTitle="Total Expense & Fees"
+              headerValue="$2368"
+            >
+              <StackChart data={stackChartSample} />
+            </ChartCard>
+          </StyledCol>
+        </StyledRow>
+        <StyledRow>
+          <StyledCol xs={12} md={6} lg={3}>
+            {this.state.isLoading ? (
+              <PositionedRelativeDiv>
+                <LoaderContainer>
+                  <Loader />
+                </LoaderContainer>
+              </PositionedRelativeDiv>
+            ) : (
+              <ChartCard
+                ddDatas={ddDatas}
+                headerTitle="Total Refunds/ Disputes"
+                headerValue="$48348"
+              >
+                <BarChart data={barChartSample} color="#64be19" />
+              </ChartCard>
+            )}
+          </StyledCol>
+          <StyledCol xs={12} md={6} lg={3}>
+            <ChartCard
+              ddDatas={ddDatas}
+              headerTitle="Total Refunds/ Disputes"
+              headerValue="$48348"
+            >
+              <BarChart data={barChartSample} color="#64be19" />
+            </ChartCard>
+          </StyledCol>
+          <StyledCol xs={12} md={6} lg={3}>
+            <ChartCard
+              ddDatas={ddDatas}
+              headerTitle="Sales/Expense/ Fees/Deposit"
+              headerValue="$34723"
+            >
+              <PieChart data={pieChartSample} colors={colors} />
+            </ChartCard>
+          </StyledCol>
+          <StyledCol xs={12} md={6} lg={3}>
+            <ChartCard
+              ddDatas={ddDatas}
+              headerTitle="Sales by Products"
+              headerValue="$23634"
+            >
+              <PieChart data={pieChartSample} colors={colors} />
+            </ChartCard>
+          </StyledCol>
+        </StyledRow>
+      </AnalyticsContainer>
+    );
+  }
 }
 
 export default AnalyticsPage;

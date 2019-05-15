@@ -33,3 +33,20 @@ export const OptionTitle = styled(P)`
   line-height: 3.69;
   margin: 0 0 0 16px;
 `;
+
+const Circle = styled.div`
+  position: absolute;
+  width: ${props => props.size};
+  height: ${props => props.size};
+  border-radius: 50%;
+  background-color: #5eb7f1;
+`;
+
+export const FirstCircle = styled(Circle)`
+  top: 40px;
+  right: -27px;
+`;
+export const SecondCircle = styled(Circle)`
+  top: 18%;
+  left: 14%;
+`;

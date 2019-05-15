@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Modal from 'react-awesome-modal';
 import {
@@ -14,9 +15,18 @@ import {
   StyledDatePicker,
   FlexRowContainer,
   FlexEndContainer,
-  StyledNormalButton,
-  StyledPrimaryButton,
+  StyledNormalButton as StyledNormalBtn,
+  StyledPrimaryButton as StyledPrimaryBtn,
 } from '../../../../../components';
+
+const StyledNormalButton = styled(StyledNormalBtn)`
+  min-width: 101px !important;
+  height: 45px !important;
+`;
+const StyledPrimaryButton = styled(StyledPrimaryBtn)`
+  min-width: 101px !important;
+  height: 45px !important;
+`;
 
 export default class TransactionModal extends Component {
   closeModal() {
@@ -85,15 +95,15 @@ export default class TransactionModal extends Component {
           </PaddedContainer>
           <FlexEndContainer margin="31px 0 0 0">
             <StyledNormalButton
-              minWidth="101px"
-              height="45px"
+              // minWidth="101px"
+              // height="45px"
               appearance="default"
             >
               Clear Filter
             </StyledNormalButton>
             <StyledPrimaryButton
-              minWidth="101px"
-              height="45px"
+              // minWidth="101px"
+              // height="45px"
               appearance="primary"
             >
               Search

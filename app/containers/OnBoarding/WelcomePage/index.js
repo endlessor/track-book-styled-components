@@ -13,7 +13,6 @@ import {
   H1,
   H2,
   P,
-  StyledP,
   Container,
   StyledPrimaryButton,
   FlexContainer,
@@ -25,7 +24,7 @@ import { DashedDiv } from './styles';
 
 export default function WelcomePage(props) {
   return (
-    <Container>
+    <Container height="100vh">
       <StyledRow>
         <StyledCol xs={12} md={8}>
           <FlexContainer>
@@ -45,9 +44,6 @@ export default function WelcomePage(props) {
                   Get Started
                 </StyledPrimaryButton>
               </FlexEndContainer>
-              <StyledP fontSize="12px">
-                © 2019 Nexus Technologies. All Rights Reserved.
-              </StyledP>
             </StepFooter>
           </FlexContainer>
         </StyledCol>

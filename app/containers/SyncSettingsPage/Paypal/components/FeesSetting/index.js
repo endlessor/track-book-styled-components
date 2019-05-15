@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   PaddedContainer,
   FlexStartContainer,
@@ -12,8 +13,9 @@ import {
   FeesContainer,
   SaveButton,
   ResetButton,
+  PrefPositionedRelativeContainer,
 } from './styles';
-function FeesSettings() {
+function FeesSettings(props) {
   return (
     <FeesContainer margin="0 120px 0 0">
       <StyledP22>Fees Settings</StyledP22>
@@ -36,25 +38,25 @@ function FeesSettings() {
         />
       </PaddedContainer>
       <PaddedContainer padding="8px 0">
-        <StyledP16>Fee expense category</StyledP16>
-        <StyledSelect
-          className="single-select"
-          classNamePrefix="react-select"
-          options={[
-            { label: 'Adelaide', value: 'adelaide' },
-            { label: 'Brisbane', value: 'brisbane' },
-            { label: 'Canberra', value: 'canberra' },
-            { label: 'Darwin', value: 'darwin' },
-            { label: 'Hobart', value: 'hobart' },
-            { label: 'Melbourne', value: 'melbourne' },
-            { label: 'Perth', value: 'perth' },
-            { label: 'Sydney', value: 'sydney' },
-          ]}
-          placeholder="Choose a City"
-        />
-        {/* <FirstCircle className="A" size="11px" />
-          <SecondCircle className="B" size="11px" />
-          <LineTo from="A" to="B" borderColor="#8dd1fd" borderStyle="dashed" /> */}
+        <PrefPositionedRelativeContainer>
+          <StyledP16>Fee expense category</StyledP16>
+          <StyledSelect
+            className="single-select"
+            classNamePrefix="react-select"
+            options={[
+              { label: 'Adelaide', value: 'adelaide' },
+              { label: 'Brisbane', value: 'brisbane' },
+              { label: 'Canberra', value: 'canberra' },
+              { label: 'Darwin', value: 'darwin' },
+              { label: 'Hobart', value: 'hobart' },
+              { label: 'Melbourne', value: 'melbourne' },
+              { label: 'Perth', value: 'perth' },
+              { label: 'Sydney', value: 'sydney' },
+            ]}
+            placeholder="Choose a City"
+          />
+          {props.children}
+        </PrefPositionedRelativeContainer>
       </PaddedContainer>
       <PaddedContainer margin="8px 0">
         <StyledCheckbox
@@ -92,4 +94,7 @@ function FeesSettings() {
   );
 }
 
+FeesSettings.propTypes = {
+  children: PropTypes.node,
+};
 export default FeesSettings;

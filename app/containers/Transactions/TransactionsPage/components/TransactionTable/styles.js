@@ -1,13 +1,29 @@
 import styled from 'styled-components';
 import {
   StyledPrimaryButton,
+  StyledNormalButton,
   PositionedAbsoluteContainer,
+  FlexRowContainer,
+  P,
 } from '../../../../../components';
 
-export const DownloadPreviousTransactionsButton = styled(StyledPrimaryButton)`
+export const ControlDiv = styled(FlexRowContainer)`
+  justify-content: space-around;
+  width: 55px;
+`;
+export const StyledPrimaryButton45 = styled(StyledPrimaryButton)`
   height: 45px !important;
   margin-left: 18px;
 `;
+
+export const StyledBorderedButton = styled(StyledNormalButton)`
+  height: 45px !important;
+  border-radius: 3px;
+  border: 1px solid #8d9096 !important;
+  background: transparent !important;
+  margin: 0 0 0 9px;
+`;
+
 export const TablePagination = styled(PositionedAbsoluteContainer)`
   display: flex;
   justify-content: space-between;
@@ -25,16 +41,23 @@ export const StatusPanel = styled.div`
   width: 90px;
   height: 24px;
   border-radius: 16px;
-  border: 1px solid ${props => props.color};
-  color: ${props => props.color};
+  border: 1px solid ${props => props.ccolor};
+  color: ${props => props.ccolor};
 `;
 
+export const StyledP14 = styled(P)`
+  font-size: 14px;
+  font-weight: 500;
+  color: #303030;
+  margin: 0;
+`;
 export const StatusPara = styled.p`
   margin: 0;
 `;
 export const ButtonPanel = styled.div`
   display: flex;
   align-items: center;
+  margin: 0 0 0 43px;
 `;
 
 export const PageLabel = styled.p`
@@ -57,6 +80,10 @@ export const TableContainer = styled.div`
         min-width: auto;
       }
     }
+  }
+  .ant-table-header {
+    margin-bottom: 0 !important;
+    overflow: hidden !important;
   }
   .ant-table-thead {
     th {

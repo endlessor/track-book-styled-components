@@ -26,6 +26,20 @@ const TooltipDiv = styled.div`
     color: #393a3d;
     margin: 0;
   }
+  &:after {
+    top: 100%;
+    left: 50%;
+    border: solid transparent;
+    content: ' ';
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(136, 183, 213, 0);
+    border-top-color: #f4f5f8;
+    border-width: 5px;
+    margin-left: -5px;
+  }
 `;
 const ContentToopTipDiv = styled.div`
   display: flex;

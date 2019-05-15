@@ -4,6 +4,7 @@ import {
   PaddedContainer,
   StyledPrimaryButton,
   StyledNormalButton,
+  PositionedRelativeContainer,
 } from '../../../../../components';
 export const StyledP22 = styled(StyledP)`
   font-size: 22px;
@@ -32,4 +33,10 @@ export const ResetButton = styled(StyledNormalButton)`
   height: 45px !important;
   min-width: 122px !important;
   background: transparent !important;
+`;
+
+export const PrefPositionedRelativeContainer = styled(
+  PositionedRelativeContainer,
+)`
+  overflow: inherit;
 `;

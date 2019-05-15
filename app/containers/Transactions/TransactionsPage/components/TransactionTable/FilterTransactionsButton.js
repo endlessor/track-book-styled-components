@@ -11,7 +11,7 @@ const OutlineDiv = styled.div`
   object-fit: contain;
   border-radius: 2px;
   border: solid 1px #92959b;
-  margin-left: 43px;
+  cursor: pointer;
   p {
     margin: 0;
     object-fit: contain;

@@ -1,18 +1,26 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Table } from 'antd';
-import { FaChevronRight, FaChevronLeft } from 'react-icons/fa';
+import {
+  FaChevronRight,
+  FaChevronLeft,
+  FaSyncAlt,
+  FaTrashAlt,
+} from 'react-icons/fa';
 import { data } from './fakeData';
 import { TransactionModal, PreDownloadModal } from '../Modal';
 import FilterTransactionsButton from './FilterTransactionsButton';
 import {
-  DownloadPreviousTransactionsButton,
+  StyledPrimaryButton45,
   TablePagination,
   ButtonPanel,
   PageLabel,
   StatusPanel,
   StatusPara,
   TableContainer,
+  ControlDiv,
+  StyledBorderedButton,
+  StyledP14,
 } from './styles';
 
 function checkColor(text) {
@@ -60,7 +68,7 @@ const columns = [
     title: 'STATUS',
     dataIndex: 'status',
     render: text => (
-      <StatusPanel color={() => checkColor(text)}>
+      <StatusPanel ccolor={() => checkColor(text)}>
         <StatusPara>{text}</StatusPara>
       </StatusPanel>
     ),
@@ -68,12 +76,20 @@ const columns = [
   {
     title: 'ACTIONS',
     key: 'actions',
-    render: () => <StatusPara>delete</StatusPara>,
+    render: () => (
+      <ControlDiv>
+        <FaSyncAlt size={18} color="#babec5" />
+        <FaTrashAlt size={18} color="#babec5" />
+      </ControlDiv>
+    ),
   },
 ];
 
 // customize item Render of Pagination
-function itemRender(type, originalElement) {
+function itemRender(what, type, originalElement) {
+  if (what > 100) {
+    return null;
+  }
   if (type === 'prev') {
     return <FaChevronLeft />;
   }
@@ -87,9 +103,7 @@ function itemRender(type, originalElement) {
 }
 // rowSelection object indicates the need for row selection
 const rowSelection = {
-  // onChange: () => {},
   getCheckboxProps: record => ({
-    disabled: record.name === 'Disabled User', // Column configuration not to be checked
     name: record.name,
   }),
 };
@@ -99,6 +113,7 @@ class TransactionTable extends Component {
     currentPage: `1-10 of ${data.length}`,
     visiblePreModal: false,
     visibleTraModal: false,
+    selectedRows: [],
   };
 
   onChange = pagination => {
@@ -138,6 +153,7 @@ class TransactionTable extends Component {
   };
 
   render() {
+    const { selectedTab } = this.props;
     return (
       <TableContainer>
         <PreDownloadModal
@@ -148,22 +164,46 @@ class TransactionTable extends Component {
           visible={this.state.visibleTraModal}
           closeModal={this.closeModal}
         />
+
         <TablePagination>
-          <ButtonPanel>
-            <FilterTransactionsButton onClick={this.onTransactionModal} />
-            <DownloadPreviousTransactionsButton
-              onClick={this.onPreDownloadModal}
-              appearance="primary"
-            >
-              Download Previous Transactions
-            </DownloadPreviousTransactionsButton>
-          </ButtonPanel>
+          {selectedTab === 2 && (
+            <ButtonPanel>
+              <FilterTransactionsButton onClick={this.onTransactionModal} />
+              <StyledPrimaryButton45
+                onClick={this.onPreDownloadModal}
+                appearance="primary"
+              >
+                Download Previous Transactions
+              </StyledPrimaryButton45>
+            </ButtonPanel>
+          )}
+          {selectedTab === 1 ? (
+            <ButtonPanel>
+              <StyledP14>
+                {this.state.selectedRows.length} of {data.length} transactions
+                synced
+              </StyledP14>
+              <StyledPrimaryButton45 appearance="primary">
+                Sync Selected
+              </StyledPrimaryButton45>
+              <StyledBorderedButton>Removed All</StyledBorderedButton>
+            </ButtonPanel>
+          ) : (
+            <ButtonPanel />
+          )}
           <PageLabel>{this.state.currentPage}</PageLabel>
         </TablePagination>
 
         <Table
           rowKey="id"
-          rowSelection={rowSelection}
+          rowSelection={{
+            ...rowSelection,
+            onChange: selectedRows => {
+              this.setState({
+                selectedRows,
+              });
+            },
+          }}
           columns={columns}
           dataSource={data}
           pagination={{ position: 'top', itemRender }}
@@ -173,6 +213,7 @@ class TransactionTable extends Component {
               this.onSelect(record, index);
             },
           })}
+          scroll={{ y: window.innerHeight - 275 }}
         />
       </TableContainer>
     );
@@ -181,5 +222,6 @@ class TransactionTable extends Component {
 
 TransactionTable.propTypes = {
   openDrawer: PropTypes.func,
+  selectedTab: PropTypes.number,
 };
 export default TransactionTable;
