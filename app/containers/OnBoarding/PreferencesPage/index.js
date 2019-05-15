@@ -75,7 +75,7 @@ class PreferencesPage extends React.Component {
 
     return (
       <Container height="100vh">
-        <svg>
+        <svg style={{ position: 'absolute' }}>
           <line
             x1={this.state.firstPoint.x}
             y1={this.state.firstPoint.y}

@@ -189,7 +189,7 @@ class Paypal extends Component {
   render() {
     return (
       <StyledRow>
-        <svg>
+        <svg style={{ position: 'absolute' }}>
           <line
             x1={this.state.firstPoint.x}
             y1={this.state.firstPoint.y}
