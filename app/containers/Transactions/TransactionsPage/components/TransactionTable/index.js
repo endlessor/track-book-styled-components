@@ -7,7 +7,6 @@ import {
   FaSyncAlt,
   FaTrashAlt,
 } from 'react-icons/fa';
-import { data } from './fakeData';
 import { TransactionModal, PreDownloadModal } from '../Modal';
 import FilterTransactionsButton from './FilterTransactionsButton';
 import {
@@ -110,13 +109,22 @@ const rowSelection = {
 
 class TransactionTable extends Component {
   state = {
-    currentPage: `1-10 of ${data.length}`,
+    currentPage: `0 of 0`,
     visiblePreModal: false,
     visibleTraModal: false,
     selectedRows: [],
   };
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.data !== this.props.data) {
+      this.setState({
+        currentPage: `1 - 10 of ${nextProps.data.length}`,
+      });
+    }
+  }
+
   onChange = pagination => {
+    const { data } = this.props;
     const { current, pageSize } = pagination;
     const first = (current - 1) * pageSize + 1;
     const second =
@@ -153,7 +161,7 @@ class TransactionTable extends Component {
   };
 
   render() {
-    const { selectedTab } = this.props;
+    const { selectedTab, data } = this.props;
     return (
       <TableContainer>
         <PreDownloadModal
@@ -166,7 +174,7 @@ class TransactionTable extends Component {
         />
 
         <TablePagination>
-          {selectedTab === 2 && (
+          {selectedTab === 1 && (
             <ButtonPanel>
               <FilterTransactionsButton onClick={this.onTransactionModal} />
               <StyledPrimaryButton45
@@ -177,7 +185,7 @@ class TransactionTable extends Component {
               </StyledPrimaryButton45>
             </ButtonPanel>
           )}
-          {selectedTab === 1 ? (
+          {selectedTab === 0 ? (
             <ButtonPanel>
               <StyledP14>
                 {this.state.selectedRows.length} of {data.length} transactions
@@ -223,5 +231,6 @@ class TransactionTable extends Component {
 TransactionTable.propTypes = {
   openDrawer: PropTypes.func,
   selectedTab: PropTypes.number,
+  data: PropTypes.array,
 };
 export default TransactionTable;

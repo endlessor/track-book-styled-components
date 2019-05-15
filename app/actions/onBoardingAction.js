@@ -1,7 +1,19 @@
-import { ON_BOARDING } from '../constants/actionType';
+import * as ActionTypes from '../constants/actionType';
 
 export function onBoarding() {
   return {
-    type: ON_BOARDING,
+    type: ActionTypes.ON_BOARDING,
+  };
+}
+
+export function fetchConnectors() {
+  return {
+    type: ActionTypes.FETCH_CONNECTORS,
+  };
+}
+
+export function fetchPreferences() {
+  return {
+    type: ActionTypes.FETCH_PREFERENCES,
   };
 }

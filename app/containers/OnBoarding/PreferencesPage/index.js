@@ -5,10 +5,12 @@
  */
 
 import React from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Progress } from 'react-sweet-progress';
 import LineTo from 'react-lineto';
 import styled from 'styled-components';
+import { fetchPreferences } from '../../../actions/onBoardingAction';
 import { StepHeader, StepContent, StepFooter, Circle } from '../components';
 import {
   StyledRow,
@@ -68,11 +70,23 @@ class PreferencesPage extends React.Component {
         y: this.second.getBoundingClientRect().y,
       },
     });
+    const { fetchPreferences_ } = this.props;
+    fetchPreferences_();
   }
 
   render() {
     const { history } = this.props;
-
+    let { bankAccounts, paymentMethods, products, taxCodes } = this.props;
+    bankAccounts = bankAccounts.map(item => ({
+      label: item.name,
+      value: item.name,
+    }));
+    paymentMethods = paymentMethods.map(item => ({
+      label: item.name,
+      value: item.name,
+    }));
+    products = products.map(item => ({ label: item.name, value: item.name }));
+    taxCodes = taxCodes.map(item => ({ label: item.name, value: item.name }));
     return (
       <Container height="100vh">
         <svg style={{ position: 'absolute' }}>
@@ -130,17 +144,8 @@ class PreferencesPage extends React.Component {
                     <StyledSelect
                       className="single-select"
                       classNamePrefix="react-select"
-                      options={[
-                        { label: 'Adelaide', value: 'adelaide' },
-                        { label: 'Brisbane', value: 'brisbane' },
-                        { label: 'Canberra', value: 'canberra' },
-                        { label: 'Darwin', value: 'darwin' },
-                        { label: 'Hobart', value: 'hobart' },
-                        { label: 'Melbourne', value: 'melbourne' },
-                        { label: 'Perth', value: 'perth' },
-                        { label: 'Sydney', value: 'sydney' },
-                      ]}
-                      placeholder="Choose a City"
+                      options={bankAccounts}
+                      placeholder="Select"
                     />
                   </PaddedContainer>
                   <PaddedContainer padding="8px 0">
@@ -149,17 +154,8 @@ class PreferencesPage extends React.Component {
                       <StyledSelect
                         className="single-select"
                         classNamePrefix="react-select"
-                        options={[
-                          { label: 'Adelaide', value: 'adelaide' },
-                          { label: 'Brisbane', value: 'brisbane' },
-                          { label: 'Canberra', value: 'canberra' },
-                          { label: 'Darwin', value: 'darwin' },
-                          { label: 'Hobart', value: 'hobart' },
-                          { label: 'Melbourne', value: 'melbourne' },
-                          { label: 'Perth', value: 'perth' },
-                          { label: 'Sydney', value: 'sydney' },
-                        ]}
-                        placeholder="Choose a City"
+                        options={paymentMethods}
+                        placeholder="Select"
                       />
                       <FirstCircle
                         className="A"
@@ -192,17 +188,8 @@ class PreferencesPage extends React.Component {
                     <StyledSelect
                       className="single-select"
                       classNamePrefix="react-select"
-                      options={[
-                        { label: 'Adelaide', value: 'adelaide' },
-                        { label: 'Brisbane', value: 'brisbane' },
-                        { label: 'Canberra', value: 'canberra' },
-                        { label: 'Darwin', value: 'darwin' },
-                        { label: 'Hobart', value: 'hobart' },
-                        { label: 'Melbourne', value: 'melbourne' },
-                        { label: 'Perth', value: 'perth' },
-                        { label: 'Sydney', value: 'sydney' },
-                      ]}
-                      placeholder="Choose a City"
+                      options={products}
+                      placeholder="Select"
                     />
                   </PaddedContainer>
                   <PaddedContainer margin="8px 0">
@@ -222,11 +209,8 @@ class PreferencesPage extends React.Component {
                         <StyledSelect
                           className="single-select"
                           classNamePrefix="react-select"
-                          options={[
-                            { label: 'Adelaide', value: 'adelaide' },
-                            { label: 'Brisbane', value: 'brisbane' },
-                          ]}
-                          placeholder="Choose a City"
+                          options={taxCodes}
+                          placeholder="Select"
                         />
                       </PaddedContainer>
                     </StyledCol>
@@ -300,6 +284,27 @@ PreferencesPage.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func,
   }),
+  fetchPreferences_: PropTypes.func,
+  bankAccounts: PropTypes.array,
+  products: PropTypes.array,
+  paymentMethods: PropTypes.array,
+  taxCodes: PropTypes.array,
 };
 
-export default PreferencesPage;
+const mapStateToProps = state => ({
+  bankAccounts: state.preferences.bankAccounts,
+  products: state.preferences.products,
+  paymentMethods: state.preferences.paymentMethods,
+  taxCodes: state.preferences.taxCodes,
+});
+
+const mapDispatchToProps = dispatch => ({
+  fetchPreferences_: () => {
+    dispatch(fetchPreferences());
+  },
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(PreferencesPage);
