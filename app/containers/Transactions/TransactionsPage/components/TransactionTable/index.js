@@ -221,7 +221,7 @@ class TransactionTable extends Component {
               this.onSelect(record, index);
             },
           })}
-          scroll={{ y: window.innerHeight - 275 }}
+          // scroll={{ y: window.innerHeight - 275 }}
         />
       </TableContainer>
     );

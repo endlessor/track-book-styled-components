@@ -67,6 +67,7 @@ export const PageLabel = styled.p`
 export const TableContainer = styled.div`
   position: relative;
   overflow: auto;
+  height: 100%;
   .ant-table-wrapper {
     .ant-pagination {
       .ant-pagination-prev {
