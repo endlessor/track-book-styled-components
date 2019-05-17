@@ -54,6 +54,7 @@ class App extends React.Component {
     if (pathname === '/') {
       history.push('/welcome');
     }
+
     return (
       <AppWrapper>
         <LeftDrawer

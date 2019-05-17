@@ -1,20 +1,10 @@
 import React from 'react';
-import ChartCard from './ChartCard';
+import ChartCard from './ChartCard/Loadable';
 
-import {
-  StyledRow,
-  StyledCol,
-  FlexStartContainer,
-  Loader,
-} from '../../../components';
+import { StyledRow, StyledCol, FlexStartContainer } from '../../../components';
 import BarChart from './Charts/BarChart';
 
-import {
-  PageTitle,
-  AnalyticsContainer,
-  LoaderContainer,
-  PositionedRelativeDiv,
-} from './styles';
+import { PageTitle, AnalyticsContainer } from './styles';
 import PieChart from './Charts/PieChart';
 import StackChart from './Charts/StackChart';
 const ddDatas = ['Last 5 months', 'This month', 'Last Week', 'This week'];
@@ -44,9 +34,7 @@ const stackChartSample = [
 const colors = ['#278480', '#33a5a4', '#3cc1bf', '#44d7d7'];
 
 class AnalyticsPage extends React.Component {
-  state = {
-    isLoading: true,
-  };
+  state = {};
 
   render() {
     return (
@@ -85,21 +73,13 @@ class AnalyticsPage extends React.Component {
         </StyledRow>
         <StyledRow>
           <StyledCol xs={12} md={6} lg={3}>
-            {this.state.isLoading ? (
-              <PositionedRelativeDiv>
-                <LoaderContainer>
-                  <Loader />
-                </LoaderContainer>
-              </PositionedRelativeDiv>
-            ) : (
-              <ChartCard
-                ddDatas={ddDatas}
-                headerTitle="Total Refunds/ Disputes"
-                headerValue="$48348"
-              >
-                <BarChart data={barChartSample} color="#64be19" />
-              </ChartCard>
-            )}
+            <ChartCard
+              ddDatas={ddDatas}
+              headerTitle="Total Refunds/ Disputes"
+              headerValue="$48348"
+            >
+              <BarChart data={barChartSample} color="#64be19" />
+            </ChartCard>
           </StyledCol>
           <StyledCol xs={12} md={6} lg={3}>
             <ChartCard

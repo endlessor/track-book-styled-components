@@ -45,3 +45,15 @@ export const HeaderValue = styled(P)`
   color: #393a3d;
   margin: 0;
 `;
+
+export const LoaderContainer = styled(PaddedContainer)`
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ffffff;
+`;

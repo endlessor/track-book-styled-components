@@ -22,6 +22,8 @@ import PositionedAbsoluteContainer from './PositionedAbsoluteContainer';
 import PositionedRelativeContainer from './PositionedRelativeContainer';
 import DropDown from './DropDown';
 import Loader from './Loader';
+import ErrorText from './ErrorText';
+
 export {
   StyledRow,
   StyledCol,
@@ -46,4 +48,5 @@ export {
   PositionedRelativeContainer,
   DropDown,
   Loader,
+  ErrorText,
 };

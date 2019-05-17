@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Container } from '../../../components';
-import TransactionTable from './components/TransactionTable';
+import TransactionTable from './components/TransactionTable/Loadable';
 import DetailDrawer from './components/DetailDrawer';
 import SyncTab from './components/SyncTab';
 

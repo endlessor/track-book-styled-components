@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import Select from '@atlaskit/select';
+// import Select from 'react-select';
 
 const StyledSelect = styled(Select)`
   height: 45px;

@@ -16,13 +16,45 @@ import { FlexRowContainer, FlexContainer } from '../../../../../components';
 import { fetchAccounts } from '../../../../../actions/accountsActions';
 
 class LeftDrawer extends React.Component {
+  state = {
+    accounts: [],
+  };
+
   componentDidMount() {
     const { fetchAccounts_ } = this.props;
     fetchAccounts_();
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.accounts !== this.props.accounts) {
+      this.setState({
+        accounts: nextProps.accounts,
+      });
+    }
+  }
+
+  setActiveAccount = id => {
+    const { accounts } = this.state;
+    accounts.map(item => {
+      const temp = item;
+      temp.status = 'Non-Active';
+      return temp;
+    });
+    accounts.map(item => {
+      const temp = item;
+      if (temp.id === id) {
+        temp.status = 'Active';
+      }
+      return temp;
+    });
+    this.setState({
+      accounts,
+    });
+  };
+
   render() {
-    const { onClose, isOpen, accounts } = this.props;
+    const { onClose, isOpen } = this.props;
+    const { accounts } = this.state;
     return (
       <Drawer
         onClose={onClose}
@@ -45,9 +77,11 @@ class LeftDrawer extends React.Component {
           {accounts.map((item, index) => (
             <FlexRowContainer
               key={item.id}
+              style={{ cursor: 'pointer' }}
               backgroundColor={index % 2 === 0 ? '#ffffff' : 'transparent'}
               alignItem="center"
               padding="12px 25px 12px 37px"
+              onClick={() => this.setActiveAccount(item.id)}
             >
               <FlexContainer>
                 <StyledP14>{item.name}</StyledP14>

@@ -26,23 +26,23 @@ export const taxCodes = [
 
 export const transactionStats = [
   {
-    type: 'NOT_SYNCED',
+    type: 'Not_Synced',
     count: 100,
   },
   {
-    type: 'SYNCED',
+    type: 'Synced',
     count: 200,
   },
   {
-    type: 'ERROR',
+    type: 'Error',
     count: 10,
   },
   {
-    type: 'IGNORED',
+    type: 'Ignored',
     count: 12,
   },
   {
-    type: 'REMOVED',
+    type: 'Removed',
     count: 100,
   },
 ];
@@ -63,7 +63,7 @@ export const accounts = [
   {
     name: 'Nexus Infotech',
     region: 'Europe',
-    id: 1,
+    id: 2,
     status: 'Non-Active',
     limits: {
       total: 100,
@@ -75,7 +75,7 @@ export const accounts = [
   {
     name: 'Nexus Infotech',
     region: 'India',
-    id: 1,
+    id: 3,
     status: 'Non-Active',
     limits: {
       total: 100,
@@ -87,7 +87,7 @@ export const accounts = [
   {
     name: 'Opt Software',
     region: 'Europe',
-    id: 1,
+    id: 4,
     status: 'Non-Active',
     limits: {
       total: 100,
@@ -99,7 +99,7 @@ export const accounts = [
   {
     name: 'Opt Software',
     region: 'India',
-    id: 1,
+    id: 5,
     status: 'Non-Active',
     limits: {
       total: 100,
